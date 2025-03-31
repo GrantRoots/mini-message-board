@@ -1,7 +1,7 @@
 const express = require("express");
 const newRouter = express.Router();
 
-newRouter.get("/new", (req, res) => {
+newRouter.get("/", (req, res) => {
   res.render("form");
 });
 
