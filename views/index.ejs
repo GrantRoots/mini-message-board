@@ -2,10 +2,16 @@
   <body>
     <h1><%= title %></h1>
     <% messages.forEach((message) => { %>
-    <div><%= message.user %></div>
-    <div><%= message.text %></div>
-    <div><%= message.added %></div>
+    <div>User: <%= message.user %></div>
+    <div>Mesage: <%= message.text %></div>
+    <div>Added: <%= message.added %></div>
+    <a
+      href="/message?user=<%= message.user %>&text=<%= message.text %>&added=<%= message.added %>"
+      ><button>Open</button></a
+    >
     <% }) %>
-    <a href="/new">New Message</a>
+    <div>
+      <a href="/new">New Message</a>
+    </div>
   </body>
 </html>
