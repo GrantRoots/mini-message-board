@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 const path = require("node:path");
 const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
@@ -19,4 +19,4 @@ app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 
-app.listen(PORT);
+app.listen(PORT || 3000);
