@@ -1,8 +1,7 @@
 const express = require("express");
 const newRouter = express.Router();
+const newController = require("../controllers/newController");
 
-newRouter.get("/", (req, res) => {
-  res.render("form");
-});
+newRouter.get("/", newController.showForm());
 
 module.exports = newRouter;

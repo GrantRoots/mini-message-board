@@ -18,7 +18,7 @@ const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb`,
+    connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb`,
   });
   await client.connect();
   await client.query(SQL);
