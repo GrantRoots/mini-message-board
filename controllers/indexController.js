@@ -1,3 +1,14 @@
-//get all messages
+const db = require("../db/queries");
 
-//show message
+async function showAllMessages(req, res) {
+  const messages = await db.getAllMessages();
+  res.render("index", { title: "Mini Message Board", messages: messages });
+}
+
+function openMessage(req, res) {}
+
+function addMessage(req, res) {}
+
+module.exports = {
+  showAllMessages,
+};

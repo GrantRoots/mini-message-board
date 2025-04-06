@@ -1,5 +1,6 @@
 const express = require("express");
 const indexRouter = express.Router();
+const indexController = require("../controllers/indexController");
 
 const messages = [
   {
@@ -14,9 +15,7 @@ const messages = [
   },
 ];
 
-indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
-});
+indexRouter.get("/", indexController.showAllMessages);
 indexRouter.get("/message", (req, res) => {
   console.log(req.query);
   res.render("message", { message: req.query });
