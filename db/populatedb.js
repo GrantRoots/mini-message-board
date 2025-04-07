@@ -40,5 +40,6 @@ if (ENV === "dev") {
     await client.query(SQL);
     await client.end();
   }
+  console.log("Sucessfully populated");
   main();
 }
