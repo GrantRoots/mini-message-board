@@ -1,7 +1,5 @@
 const { Pool } = require("pg");
 
-const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
-
 const ENV = process.env.ENV;
 if (ENV === "dev") {
   const ROLE_NAME = process.env.ROLE_NAME;
@@ -11,7 +9,9 @@ if (ENV === "dev") {
   });
   console.log("Running in dev pool");
 } else {
+  const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
   module.exports = new Pool({
-    connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb`,
+    connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb?sslmode=require`,
   });
+  console.log("Running production pool...");
 }

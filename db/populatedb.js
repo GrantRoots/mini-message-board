@@ -29,12 +29,13 @@ if (ENV === "dev") {
     await client.query(SQL);
     await client.end();
   }
+  console.log("Sucessfully populated dev");
   main();
 } else {
   const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
   async function main() {
     const client = new Client({
-      connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb`,
+      connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb?sslmode=require`,
     });
     await client.connect();
     await client.query(SQL);
