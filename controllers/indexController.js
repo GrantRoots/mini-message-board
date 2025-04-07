@@ -5,10 +5,17 @@ async function showAllMessages(req, res) {
   res.render("index", { title: "Mini Message Board", messages: messages });
 }
 
-function openMessage(req, res) {}
+function openMessage(req, res) {
+  res.render("message", { message: req.query });
+}
 
-function addMessage(req, res) {}
+async function addMessage(req, res) {
+  await db.addMessage([req.body.messageText, req.body.authorsName, Date()]);
+  res.redirect("/");
+}
 
 module.exports = {
   showAllMessages,
+  openMessage,
+  addMessage,
 };

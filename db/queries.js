@@ -18,7 +18,7 @@ async function openMessage(user) {
 async function addMessage(message) {
   await pool.query(
     "INSERT INTO messages (text, username, added) VALUES ($1, $2, $3);",
-    [message]
+    message
   );
 }
 

@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+console.log("Populatiing DB...");
 
 const { Client } = require("pg");
 
@@ -7,11 +8,11 @@ CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   text VARCHAR(255),
   username VARCHAR(255) UNIQUE,
-  added DATE
+  added TEXT
 );
 
 INSERT INTO messages (text, username, added) 
-VALUES  ('Hello, this is a test message!', 'Test User', CURRENT_DATE)
+VALUES  ('Hello Welcome To My Project', 'Grant R', CURRENT_DATE)
 `;
 
 //set ENV, ROLE_NAME, ROLE_PASSWORD if dev
