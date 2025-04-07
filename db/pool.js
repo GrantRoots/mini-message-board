@@ -9,9 +9,15 @@ if (ENV === "dev") {
   });
   console.log("Running in dev pool");
 } else {
+  const DATABASE_HOST = process.env.DATABASE_HOST;
+  const DATABASE_USER = process.env.DATABASE_USER;
   const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
+  const DATABASE_NAME = process.env.DATABASE_NAME;
   module.exports = new Pool({
-    connectionString: `postgres://koyeb-adm:${DATABASE_PASSWORD}@ep-bold-brook-a4v71v3m.us-east-1.pg.koyeb.app/koyebdb?sslmode=require`,
+    connectionString: `postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}/${DATABASE_NAME}`,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
   console.log("Running production pool...");
 }
