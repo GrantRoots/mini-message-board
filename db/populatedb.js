@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 console.log("Populatiing DB...");
 
+require("dotenv").config();
 const { Client } = require("pg");
 
 const SQL = `
