@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { Pool } = require("pg");
 
+//set ENV, ROLE_NAME, ROLE_PASSWORD if dev
 const ENV = process.env.ENV;
 if (ENV === "dev") {
   const ROLE_NAME = process.env.ROLE_NAME;
